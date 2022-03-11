@@ -5,7 +5,12 @@ const readline = require('readline');
 class Polynomial {
 
     constructor(){
-  
+        this.Main = this.Main.bind(this);
+        this.Pow = this.Pow.bind(this);
+        this.Add = this.Add.bind(this);
+        this.ConvertJson = this.ConvertJson.bind(this);
+        this.answerExpected = [];
+        this.evaluatedPolynomial = [];
     }
 
     // Test if data is json or not and then convert it to json
@@ -26,16 +31,13 @@ class Polynomial {
         let increment = xValue;
         let i, j;
 
-        for (i = 1; i < power; i++)
-        {
-            for (j = 1; j < xValue; j++)
-            {
+        for (i = 1; i < power; i++){
+            for (j = 1; j < xValue; j++){
                 answer += increment;
             }
             increment = answer;
         }
-        return answer;
-        
+        return answer;   
     }
 
      //All good now
@@ -54,6 +56,14 @@ class Polynomial {
         return xResult;
        }
 
+    Compare(yValue, expectedValue){
+        // yValue = this.comparison[0];
+        return yValue === expectedValue;
+        // arr1 = [1,2,3,4,5];
+        // arr2 = [6,7,8,9,10];
+        // return arr1 == arr2
+    }
+
     Main(data){
          let yValue = 0;
          let expectedAnswer = '';
@@ -62,17 +72,19 @@ class Polynomial {
            
          for ( const entry of parsedData){            
             if(typeof entry === 'object'){
-              
                 for(let i = 0; i < entry.terms.length; i++){      
                  yValue += this.Add(entry.terms[i].multiplier, this.Pow(entry.xValue, entry.terms[i].power), entry.terms[i].action);  
                 } 
             } else {
                 expectedAnswer += data;
-                return expectedAnswer = expectedAnswer.slice(18);
-                
-            }                
+                expectedAnswer = Number(expectedAnswer.slice(18));
+                return expectedAnswer === this.evaluatedPolynomial[this.evaluatedPolynomial.length - 1];
+            }                  
          }
-         return yValue;
+        
+         this.evaluatedPolynomial.push(yValue);
+         return this.evaluatedPolynomial ? true : false;
+         
         }
      }
 
