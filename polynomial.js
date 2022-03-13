@@ -16,7 +16,6 @@ class Polynomial {
     static ReadFile(path){
         const fs = require('fs');
         const readline = require('readline');
-        const { Polynomial }= require('./polynomial.js');
         const polynomialFactory = new Polynomial();
 
         const myInterface = readline.createInterface({
