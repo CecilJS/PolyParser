@@ -1,12 +1,8 @@
-
-
-
 class Polynomial {
     constructor(){
         this.evaluatedPolynomial = [];
     }
 
-    // Test if data is json or not and then convert it to json
     ConvertJson(str) {
     try {
         JSON.parse(str);
@@ -16,13 +12,29 @@ class Polynomial {
         return str;
     }
 
+
+    static ReadFile(path){
+        const fs = require('fs');
+        const readline = require('readline');
+        const { Polynomial }= require('./polynomial.js');
+        const polynomialFactory = new Polynomial();
+
+        const myInterface = readline.createInterface({
+        input: fs.createReadStream(`${path}`)
+        });
+
+        const printData = (data) => {
+        return console.log(`${polynomialFactory.Main(data)}`);
+        }
+        myInterface.on('line', printData);
+    }
    
     RegexConverter(data){
         let trimmedYValue = data.slice(18);
         let xValue = data.slice(8, 14);
         xValue = xValue.charAt(xValue.length -1) === ';'? Number(xValue.slice(4,5)) : Number(xValue.slice(4, 6));
         trimmedYValue = trimmedYValue.charAt(0) === '='? trimmedYValue.slice(2) : trimmedYValue.slice(1);
-        const rawData = trimmedYValue// some have to be 19 some have to be 20
+        const rawData = trimmedYValue;
         const trimmedData = rawData.replace(/[.?{}()|\\]/g, '');
         const groups = /[+-]?\d+x?(\^\d+)?/g;
         const matches = trimmedData.match(groups);
@@ -47,6 +59,7 @@ class Polynomial {
       
     }
     
+
     Pow(xValue , power){
         if (power === 0) return 1;
 
@@ -63,7 +76,8 @@ class Polynomial {
         return answer;   
     }
 
-    Add(multiplier, xValue, action){
+
+    Calculate(multiplier, xValue, action){
         let xResult = 0;
         if(action === 'add'){
           for(let i = 0; i < multiplier; i++){
@@ -78,6 +92,7 @@ class Polynomial {
         return xResult;
        }
 
+
     Main(data){
          let yValue = 0;
          let expectedAnswer = '';
@@ -87,28 +102,21 @@ class Polynomial {
          for ( const entry of parsedData){            
             if(typeof entry === 'object'){
                 for(let i = 0; i < entry.terms.length; i++){    
-                 yValue += this.Add(entry.terms[i].multiplier, this.Pow(entry.xValue, entry.terms[i].power), entry.terms[i].action);  
+                 yValue += this.Calculate(entry.terms[i].multiplier, this.Pow(entry.xValue, entry.terms[i].power), entry.terms[i].action);  
                 } 
             } else if(data.match(/^numeric./i)){   
                     let convertedData = this.RegexConverter(data);
                     for(let i = 0; i < convertedData.terms.length; i++){   
-                        yValue += this.Add(convertedData.terms[i].multiplier, this.Pow(convertedData.xValue, convertedData.terms[i].power), convertedData.terms[i].action);  
+                        yValue += this.Calculate(convertedData.terms[i].multiplier, this.Pow(convertedData.xValue, convertedData.terms[i].power), convertedData.terms[i].action);  
                        } 
-                       //this.evaluatedPolynomial.push(yValue);
                 } else{ 
-               
                 expectedAnswer += data;
                 expectedAnswer = Number(expectedAnswer.slice(18));
-                return expectedAnswer === this.evaluatedPolynomial[this.evaluatedPolynomial.length - 1];
-               
+                return this.evaluatedPolynomial[this.evaluatedPolynomial.length - 1] === expectedAnswer ? `${this.evaluatedPolynomial[this.evaluatedPolynomial.length - 1]} is equal to ${expectedAnswer}`  : `${this.evaluatedPolynomial[this.evaluatedPolynomial.length - 1]} is not equal to ${expectedAnswer}`;  
             }                  
          }
-        
-      
          this.evaluatedPolynomial.push(yValue);
-         console.table(this.evaluatedPolynomial);
-         return this.evaluatedPolynomial ? true : false;
-         
+         return this.evaluatedPolynomial[this.evaluatedPolynomial.length - 1];
         }
      }
 
