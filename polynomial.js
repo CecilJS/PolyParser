@@ -25,7 +25,6 @@ class Polynomial {
         });
 
         const printData = (data) => {
-            console.log(typeof data);
         return polynomialFactory.main(data);
         }
       
