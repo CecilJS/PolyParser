@@ -4,6 +4,7 @@
   "description": "This is a solution to a coding challenge for IDBS",
   "main": "levelOne.js",
   "dependencies": {
+    "jest-coverage-badges": "^1.1.2",
     "node": "^17.7.1"
   },
   "devDependencies": {
@@ -11,7 +12,16 @@
     "jest": "^27.5.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json-summary", 
+      "text",
+      "lcov"
+    ]
   },
   "repository": {
     "type": "git",

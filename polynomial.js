@@ -3,7 +3,7 @@ class Polynomial {
         this.evaluatedPolynomial = [];
     }
 
-    ConvertJson(str) {
+    convertJson(str) {
     try {
         JSON.parse(str);
     } catch (e) {
@@ -13,7 +13,9 @@ class Polynomial {
     }
 
 
-    static ReadFile(path){
+    
+
+    static readFile(path){
         const fs = require('fs');
         const readline = require('readline');
         const polynomialFactory = new Polynomial();
@@ -23,12 +25,17 @@ class Polynomial {
         });
 
         const printData = (data) => {
-        return polynomialFactory.Main(data);
+            console.log(typeof data);
+        return polynomialFactory.main(data);
         }
+      
         myInterface.on('line', printData);
     }
    
-    RegexConverter(data){
+    
+
+
+    regexConverter(data){
         let trimmedYValue = data.slice(18);
         let xValue = data.slice(8, 14);
         xValue = xValue.charAt(xValue.length -1) === ';'? Number(xValue.slice(4,5)) : Number(xValue.slice(4, 6));
@@ -59,7 +66,7 @@ class Polynomial {
     }
     
 
-    Pow(xValue , power){
+    pow(xValue , power){
         if(typeof xValue === 'number' && xValue >= 0 && typeof power === 'number' && power >= 0){
         if (power === 0) return 1;
 
@@ -80,7 +87,7 @@ class Polynomial {
     }
 
 
-    Calculate(multiplier, xValue, action){
+    calculate(multiplier, xValue, action){
         if(typeof xValue === 'number' && xValue >= 0 && typeof multiplier === 'number' && multiplier >= 0){
         let xResult = 0;
         if(action === 'add'){
@@ -100,21 +107,21 @@ class Polynomial {
        }
 
 
-    Main(data){
+    main(data){
          let yValue = 0;
          let expectedAnswer = '';
-         const extractedData = this.ConvertJson(data);
+         const extractedData = this.convertJson(data);
          const parsedData = [JSON.parse(extractedData)];
            
          for ( const entry of parsedData){            
             if(typeof entry === 'object'){
                 for(let i = 0; i < entry.terms.length; i++){    
-                 yValue += this.Calculate(entry.terms[i].multiplier, this.Pow(entry.xValue, entry.terms[i].power), entry.terms[i].action);  
+                 yValue += this.calculate(entry.terms[i].multiplier, this.pow(entry.xValue, entry.terms[i].power), entry.terms[i].action);  
                 } 
             } else if(data.match(/^numeric./i)){   
-                    let convertedData = this.RegexConverter(data);
+                    let convertedData = this.regexConverter(data);
                     for(let i = 0; i < convertedData.terms.length; i++){   
-                        yValue += this.Calculate(convertedData.terms[i].multiplier, this.Pow(convertedData.xValue, convertedData.terms[i].power), convertedData.terms[i].action);  
+                        yValue += this.calculate(convertedData.terms[i].multiplier, this.pow(convertedData.xValue, convertedData.terms[i].power), convertedData.terms[i].action);  
                        } 
                 } else{ 
                 expectedAnswer += data;

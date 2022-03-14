@@ -1,0 +1,3 @@
+{"total": {"lines":{"total":72,"covered":59,"skipped":0,"pct":81.94},"statements":{"total":77,"covered":63,"skipped":0,"pct":81.81},"functions":{"total":9,"covered":8,"skipped":0,"pct":88.88},"branches":{"total":36,"covered":26,"skipped":0,"pct":72.22},"branchesTrue":{"total":0,"covered":0,"skipped":0,"pct":"Unknown"}}
+,"C:\\Users\\Dewdr\\Desktop\\IDBSCodingChallenge\\polynomial.js": {"lines":{"total":72,"covered":59,"skipped":0,"pct":81.94},"functions":{"total":9,"covered":8,"skipped":0,"pct":88.88},"statements":{"total":77,"covered":63,"skipped":0,"pct":81.81},"branches":{"total":36,"covered":26,"skipped":0,"pct":72.22}}
+}
