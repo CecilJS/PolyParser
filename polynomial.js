@@ -21,11 +21,11 @@ class Polynomial {
         const polynomialFactory = new Polynomial();
 
         const myInterface = readline.createInterface({
-        input: fs.createReadStream(`${path}`)
+            input: fs.createReadStream(`${path}`)
         });
 
         const printData = (data) => {
-        return polynomialFactory.main(data);
+            return polynomialFactory.main(data);
         }
       
         myInterface.on('line', printData);
