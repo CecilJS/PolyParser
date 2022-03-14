@@ -23,7 +23,7 @@ class Polynomial {
         });
 
         const printData = (data) => {
-        return console.log(`${polynomialFactory.Main(data)}`);
+        return polynomialFactory.Main(data);
         }
         myInterface.on('line', printData);
     }
@@ -60,6 +60,7 @@ class Polynomial {
     
 
     Pow(xValue , power){
+        if(typeof xValue === 'number' && xValue >= 0 && typeof power === 'number' && power >= 0){
         if (power === 0) return 1;
 
         let answer = xValue;
@@ -73,10 +74,14 @@ class Polynomial {
             increment = answer;
         }
         return answer;   
+    }else{
+        return 'Invalid Input';
+    }
     }
 
 
     Calculate(multiplier, xValue, action){
+        if(typeof xValue === 'number' && xValue >= 0 && typeof multiplier === 'number' && multiplier >= 0){
         let xResult = 0;
         if(action === 'add'){
           for(let i = 0; i < multiplier; i++){
@@ -89,6 +94,9 @@ class Polynomial {
           return xResult;
         }
         return xResult;
+        }else{
+            return 'Invalid Input';
+        }
        }
 
 
