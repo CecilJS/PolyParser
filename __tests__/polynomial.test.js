@@ -118,13 +118,13 @@ describe("Unit Tests", () => {
 
 
 // Testing the ReadFile Method - need to mock the fs module
-describe("Testing the ReadFile method", () => {
+describe("Testing the computeFile method", () => {
     const {Polynomial} = require("../polynomial");
 
 
-test("Test the readFile method", () => {
+test("Test the computeFile method", () => {
     const polynomial = new Polynomial();
-    const readFile = jest.spyOn(Polynomial, "readFile");
+    const computeFile = jest.spyOn(Polynomial, "computeFile");
     const fs = require('fs');
     const mockfs = jest.spyOn(fs, 'createReadStream');
     const readline = require('readline');
@@ -140,9 +140,9 @@ test("Test the readFile method", () => {
     });;
     const testDataResult = -4305640;
 
-    Polynomial.readFile("data/LevelOneDataFile.dat");
-    expect(readFile).toHaveBeenCalled();
-    expect(readFile).toHaveBeenCalledWith("data/LevelOneDataFile.dat");
+    Polynomial.computeFile("data/LevelOneDataFile.dat");
+    expect(computeFile).toHaveBeenCalled();
+    expect(computeFile).toHaveBeenCalledWith("data/LevelOneDataFile.dat");
     expect(readlineMock).toHaveBeenCalled();
     expect(mockfs).toHaveBeenCalled();
     expect(mockfs).toHaveBeenCalledWith("data/LevelOneDataFile.dat");

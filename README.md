@@ -51,10 +51,10 @@ Install dependencies
 
 
 ## Usage
-> In order to see the output in your terminal or command line, head to the `polynomial.js` file, inside the `Polynomial` class, locate the `static readFile` method which is the entry point of the class and include a `console.log` statement on line `28`. Before you run the code, your `readFile` method should look like the code below:
+> In order to see the output in your terminal or command line, head to the `polynomial.js` file, inside the `Polynomial` class, locate the `static computeFile` method which is the entry point of the class and include a `console.log` statement on line `28`. Before you run the code, your `computeFile` method should look like the code below:
 
 ```javascript
-static readFile(path){
+static computeFile(path){
         const fs = require('fs');
         const readline = require('readline');
         const polynomialFactory = new Polynomial();
