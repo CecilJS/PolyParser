@@ -1,16 +1,14 @@
 
-# IDBSCodingChallenge
-
-## Documentation
+# Documentation
 
 ![Percentage of statements covered](./coverage/badge-statements.svg)
 ![Percentage of lines convered](./coverage/badge-lines.svg)
 ![Percentage of functions unctions](./coverage/badge-functions.svg)
 ![Percentage of braches covered](./coverage/badge-branches.svg)
 
-## Program Description
+# Purpose of this Software
 
-> This program reads data (two lines at a time), interpret the data from the first line 
+> This software reads data (two lines at a time), interpret the data from the first line 
   and calculate the your Y-value (i.e. it solves the equation for the given X-value). 
   Then compares the calculated Y-value with the actual expected Y-value provided in the second line of the data.
 
@@ -59,7 +57,7 @@ Install dependencies
 
 ## Scenario and Rules: Level-1
 
-The objective of this program is to do a mathematical calculation, with a coding twist. We are evaluating multiple polynomial equations, i.e. for the polynomial equation provided we are calculating the Y-value for a given X-value.
+The objective of this software is to do a mathematical calculation, with a coding twist. We are evaluating multiple polynomial equations, i.e. for the polynomial equation provided we are calculating the Y-value for a given X-value.
 
 The polynomial has the following form:
 
@@ -125,7 +123,7 @@ The polynomial will be provided as input data in the form of Json as follows, (t
 
 ## Scenario and Rules: Level-2
 
-In this level you are doing the same mathematical calculation as level-1 with the same limitations on the use of mathematical operators.
+In this level we are doing the same mathematical calculation as level-1 with the same limitations on the use of mathematical operators.
 
 As before the polynomial will have the following form:
 
@@ -153,7 +151,7 @@ The format of the input data defining the polynomial varies in this level.
 
 There are now two forms of input data defining the polynomial and the data supplied uses BOTH forms randomly at approximately 50/50.
 
-An important design consideration is that the business analyst driving the requirements for the application has indicated that other input formats WILL be used in the future - however these have not yet been specified and as yet are not included in the test data generated for this level.
+An important design consideration is that the business analyst driving the requirements for this application has indicated that other input formats WILL be used in the future - however these have not yet been specified and as yet are not included in the test data generated for this level.
 
 The polynomial data for this level includes the json format from level-1. It also includes a new format that is a highly compact numeric mathematical-notation. The new format has a prefix string indicating the new input type thus:
 
@@ -176,7 +174,7 @@ numeric:x=5;y=+8.x^1-2.x^0+3.x^4-6.x^2+2x^3
 		present on the multiplier of the first 
 		term even if that multiplier is zero 
 
-> Note: This program has been  designed and written with the above rules in mind. 
+> Note: This software has been  designed and written with the above rules in mind. 
 
 ## Usage
 > In order to see the output in your terminal or command line, head to the `polynomial.js` file, inside the `Polynomial` class, locate the `static computeFile` method which is the entry point of the class and include a `console.log` statement on line `28`. Before you run the code, your `computeFile` method should look like the code below:
@@ -210,7 +208,7 @@ Note: Run these commands one after the other in your terminal or command line an
 
 ```
 ## Running Tests
-> This project uses the JavaScript testing framework called Jest for unit test.
+> This software uses the JavaScript testing framework called Jest for unit test.
 
 To run tests, run the following command in your terminal or command line:
 
