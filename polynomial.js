@@ -43,6 +43,7 @@ class Polynomial {
         const trimmedData = rawData.replace(/[.?{}()|\\]/g, '');
         const groups = /[+-]?\d+x?(\^\d+)?/g;
         const matches = trimmedData.match(groups);
+        
         const terms = matches.map(term => {
             let [coeficient, monomial, action ] = term.split(/(?=[a-z](?:\^\d+)?)/);
                 action = coeficient.charAt(0) === '-' ? 'subtract' : 'add';
