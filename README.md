@@ -1,12 +1,13 @@
-
-# Documentation
-
 ![Percentage of statements covered](./coverage/badge-statements.svg)
 ![Percentage of lines convered](./coverage/badge-lines.svg)
 ![Percentage of functions unctions](./coverage/badge-functions.svg)
 ![Percentage of braches covered](./coverage/badge-branches.svg)
 
-# Purpose of this Software
+# Documentation
+
+## Purpose of Software
+
+----------------------
 
 > This software reads data (two lines at a time), interpret the data from the first line 
   and calculate the your Y-value (i.e. it solves the equation for the given X-value). 
