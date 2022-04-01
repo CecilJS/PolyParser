@@ -73,12 +73,12 @@ The polynomial has the following form:
     all numbers used (the power, multiplier, constant and value of X) will always be positive integers
 
 Now here is the coding twist:
-  ```
-				The program that has been written needs to evaluate the equation and must
-				ONLY utilise the mathematical operators ADD and SUBTRACT, i.e., 
-				the coding language operator + and - . This is in the interest of performance.
+  
+	  This software needs to evaluate the equation and must
+		ONLY utilise the mathematical operators ADD and SUBTRACT, i.e., 
+	  the coding language operator + and - . This is in the interest of performance.
 
-   ```
+  
 
 It is against the rules to use mathematical operators such as multiplication, division, modulus, "raised to the power of", logarithms, base conversions, logical-shift operators or any mathematical functions/operators other than the operators ADD " + " or SUBTRACT " - " . 
 
@@ -137,9 +137,9 @@ As before the polynomial will have the following form:
 
 Now here is the coding twist:
 
-				The program that has been written needs to evaluate the equation and must
-				ONLY utilise the mathematical operators ADD and SUBTRACT, i.e., 
-				the coding language operator + and - . This is in the interest of performance.
+		This software needs to evaluate the equation and must
+		ONLY utilise the mathematical operators ADD and SUBTRACT, i.e., 
+		the coding language operator + and - . This is in the interest of performance.
 
 It is against the rules to use mathematical operators such as multiplication, division, modulus, "raised to the power of", logarithms, base conversions, logical-shift operators or any mathematical functions/operators other than the operators ADD " + " or SUBTRACT " - " . 
 
