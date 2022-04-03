@@ -28,7 +28,7 @@ To run this project, you will need to have the latest version of node installed 
 To check which version of node you have installed on your system, type the following command:
 
 ```bash
-  node --version or node -v    // whichever is easier
+  node --version or node -v 
 ```
 
 If you do not have node installed on your system, head to the official website
@@ -54,6 +54,46 @@ Install dependencies
 
 ```bash
   npm install
+```
+
+## Usage
+> In order to see the output in your terminal or command line, head to the `polynomial.js` file, inside the `Polynomial` class, locate the `static computeFile` method which is the entry point of the class and include a `console.log` statement on line `28`. Before you run the code, your `computeFile` method should look like the code below:
+
+```javascript
+static computeFile(path){
+        const fs = require('fs');
+        const readline = require('readline');
+        const polynomialFactory = new Polynomial();
+
+        const myInterface = readline.createInterface({
+          input: fs.createReadStream(`${path}`)
+        });
+
+        const printData = (data) => {
+          return console.log(`${polynomialFactory.main(data)}`);
+        }
+      
+        myInterface.on('line', printData);
+    }
+
+```
+ > After following the steps above, you are now ready to run the code and see the output in your terminal. Run the following commands to test both `levelOne.js` and `levelTwo.js` files.
+
+```bash
+Note: Run these commands one after the other in your terminal or command line and observe the output.
+
+  node levelOne.js
+
+  node levelTwo.js
+
+```
+## Running Tests
+> This software uses the JavaScript testing framework called Jest for unit test.
+
+To run tests, run the following command in your terminal or command line:
+
+```bash
+  npm run test
 ```
 
 ## Scenario and Rules: Level-1
@@ -176,46 +216,6 @@ numeric:x=5;y=+8.x^1-2.x^0+3.x^4-6.x^2+2x^3
 		term even if that multiplier is zero 
 
 > Note: This software has been  designed and written with the above rules in mind. 
-
-## Usage
-> In order to see the output in your terminal or command line, head to the `polynomial.js` file, inside the `Polynomial` class, locate the `static computeFile` method which is the entry point of the class and include a `console.log` statement on line `28`. Before you run the code, your `computeFile` method should look like the code below:
-
-```javascript
-static computeFile(path){
-        const fs = require('fs');
-        const readline = require('readline');
-        const polynomialFactory = new Polynomial();
-
-        const myInterface = readline.createInterface({
-          input: fs.createReadStream(`${path}`)
-        });
-
-        const printData = (data) => {
-          return console.log(`${polynomialFactory.main(data)}`);
-        }
-      
-        myInterface.on('line', printData);
-    }
-
-```
- > After following the steps above, you are now ready to run the code and see the output in your terminal. Run the following commands to test both `levelOne.js` and `levelTwo.js` files.
-
-```bash
-Note: Run these commands one after the other in your terminal or command line and observe the output.
-
-  node levelOne.js
-
-  node levelTwo.js
-
-```
-## Running Tests
-> This software uses the JavaScript testing framework called Jest for unit test.
-
-To run tests, run the following command in your terminal or command line:
-
-```bash
-  npm run test
-```
 
 > Thank you for taking the time to check out my project. Kindly contact the project's Author if you have any feedback to improve the quality of the code.
 
