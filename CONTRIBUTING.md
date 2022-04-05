@@ -174,22 +174,10 @@ Explain the problem and include additional details to help maintainers reproduce
 
 ## Debugging Guide
 
-This format uses: 
-		a dot . to mean multiply or times
-		the hat ^ to mean "to the power of"
-	
-	
-	Hence the input data above can be read as: 
-		x equals 5
-		y equals 8 times (X to the power of 1) 
-			minus 2 times (X to the power of zero)
-			plus 3 times (X to the power of four)
-			minus 6 times (X to the power of 2)
-			plus two times (X to the power of three) 
-			
-	note:	the plus or minus sign will ALWAYS be 
-		present on the multiplier of the first 
-		term even if that multiplier is zero 
+For a simple debugging guide to this software, please refer to the [PolyParser Readme File](README.md).
+
 
 
 ## FAQ
+
+This section will be updated in due course.
