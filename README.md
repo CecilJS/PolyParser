@@ -1,21 +1,13 @@
-![Percentage of statements covered](./coverage/badge-statements.svg)
-![Percentage of lines convered](./coverage/badge-lines.svg)
-![Percentage of functions unctions](./coverage/badge-functions.svg)
-![Percentage of braches covered](./coverage/badge-branches.svg)
+# [PolyParser](#CONTRIBUTING) ![Percentage of statements covered](./coverage/badge-statements.svg)![Percentage of lines convered](./coverage/badge-lines.svg)![Percentage of functions unctions](./coverage/badge-functions.svg)![Percentage of braches covered](./coverage/badge-branches.svg)
 
-# Documentation
 
-## Purpose of Software
-
-----------------------
-
-> This software reads data (two lines at a time), interpret the data from the first line 
+  This software reads data (two lines at a time), interpret the data from the first line 
   and calculate the your Y-value (i.e. it solves the equation for the given X-value). 
   Then compares the calculated Y-value with the actual expected Y-value provided in the second line of the data.
 
-  > The data in the file represents 100s to 1000s polynomial equations, 
-  each polynomial has two lines of data: - the first line contains the encoded polynomial data 
-  - the second line contains the expected Y-value when solving the polynomial for the given X-value.
+  - The data in the file represents 100s to 1000s polynomial equations, 
+  each polynomial has two lines of data: - the first line contains the encoded polynomial data. 
+  - The second line contains the expected Y-value when solving the polynomial for the given X-value.
 
 
 
@@ -23,6 +15,8 @@
 
 * Node JS
 * Jest
+
+## Installation
 
 To run this project, you will need to have the latest version of node installed on your system.
 To check which version of node you have installed on your system, type the following command:
