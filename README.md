@@ -1,4 +1,5 @@
-# [PolyParser](#CONTRIBUTING) ![Percentage of statements covered](./coverage/badge-statements.svg) ![Percentage of lines convered](./coverage/badge-lines.svg) ![Percentage of functions unctions](./coverage/badge-functions.svg) ![Percentage of braches covered](./coverage/badge-branches.svg)
+# [PolyParser](#contribution) 
+![Percentage of statements covered](./coverage/badge-statements.svg) ![Percentage of lines convered](./coverage/badge-lines.svg) ![Percentage of functions unctions](./coverage/badge-functions.svg) ![Percentage of braches covered](./coverage/badge-branches.svg)
 
 
   This software reads data (two lines at a time), interpret the data from the first line 
