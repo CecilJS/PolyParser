@@ -179,5 +179,6 @@ For a simple debugging guide to this software, please refer to the [PolyParser R
 
 
 ## FAQ
+In this sectioin, you will find answers to questions that are frequently asked by contributor to an open source project.
 
 This section will be updated in due course.
